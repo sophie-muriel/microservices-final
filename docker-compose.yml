@@ -4,5 +4,7 @@ services:
   adminer1:
   adminer2:
 networks:
-  final_net:
+  final_net_1:
+    driver: bridge
+  final_net_2:
     driver: bridge
