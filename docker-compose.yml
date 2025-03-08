@@ -16,9 +16,23 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
-
   database_2:
-
+    build:
+      context: ./database-2
+      dockerfile: Dockerfile
+    container_name: database_2
+    restart: always
+    ports:
+      - 4800:3306
+    volumes:
+      - ./database-2/data:/var/lib/mysql
+    networks:
+      - final_net_2
+    healthcheck:
+      test: ["CMD", "mysql", "-u", "root", "-pqP4!gh12t%g%12Q"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
   adminer1:
     image: adminer
     container_name: adminer_database_1
@@ -30,8 +44,17 @@ services:
     depends_on:
       database_1:
         condition: service_healthy
-
   adminer2:
+    image: adminer
+    container_name: adminer_database_2
+    restart: always
+    ports:
+      - 9001:8080
+    networks:
+      - final_net_2
+    depends_on:
+      database_2:
+        condition: service_healthy
 
 networks:
   final_net_1:
