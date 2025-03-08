@@ -1,0 +1,8 @@
+services:
+  database_1:
+  database_2:
+  adminer1:
+  adminer2:
+networks:
+  final_net:
+    driver: bridge
