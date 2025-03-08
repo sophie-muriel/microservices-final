@@ -28,7 +28,7 @@ services:
     networks:
       - final_net_1
     depends_on:
-      database:
+      database_1:
         condition: service_healthy
 
   adminer2:
