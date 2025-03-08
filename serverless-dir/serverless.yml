@@ -1,14 +1,23 @@
 service: serverless-dir
 frameworkVersion: '3'
 
+plugins:
+  - serverless-offline
+
 provider:
   name: aws
   runtime: python3.9
 
 functions:
-  hello:
-    handler: handler.hello
+  function_1:
+    handler: handler.function_1
     events:
-      - httpApi:
-          path: /
+      - http:
+          path: /function_1
+          method: get
+  function_2:
+    handler: handler.function_2
+    events:
+      - http:
+          path: /function_2
           method: get
