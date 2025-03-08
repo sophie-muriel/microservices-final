@@ -1,0 +1,8 @@
+FROM mysql:latest
+
+ENV MYSQL_ROOT_PASSWORD qP4!gh12t%g%12Q
+ENV MYSQL_DATABASE database_2
+ENV MYSQL_USER database_2_user
+ENV MYSQL_PASSWORD qP4!gh12t%g%12Q-user2
+
+EXPOSE 3306
